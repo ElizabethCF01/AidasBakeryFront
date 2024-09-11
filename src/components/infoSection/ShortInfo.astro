@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets'
+import { getHeroData } from '@/api/hero'
+import { type Hero } from '@/types/hero'
+
+import HappyFace from '@/components/icons/HappyFace.astro'
+import SoftBadge from '../icons/SoftBadge.astro'
+---
+
+<section class="bg-pirate-gold-600 min-h-[100dvh] flex justify-center items-center font-alegreya px-4 py-5">
+  <div class="flex flex-col justify-center">
+    <div class="w-full flex justify-center mb-24">
+      <SoftBadge class="relative h-32 w-32 md:h-48 md:w-48 text-beauty-bush-300 animate-zoom-in">
+        <div class="absolute top-0 w-full h-full flex justify-center items-center">
+          <HappyFace class="h-16 w-16 md:h-24 md:w-24 flex justify-center items-center -rotate-12" />
+        </div>
+      </SoftBadge>
+    </div>
+    <h2 class="text-5xl md:text-7xl mg:px-20 lg:px-32 xl:px-48 text-center font-medium mb-8 text-pirate-gold-100">
+      Panecitos recién horneados para hacerte sonreír
+    </h2>
+  </div>
+</section>
