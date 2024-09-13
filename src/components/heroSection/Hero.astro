@@ -1,9 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 import { getHeroData } from '@/api/hero'
-import { type Hero } from '@/types/hero'
 
-import Badge from '@/components/Badge.astro'
+import Badge from '@/components/icons/Badge.astro'
 
 const { title, call_action, image_description, image } = await getHeroData()
 const { url } = image.data.attributes
