@@ -1,5 +1,5 @@
 import fetchApi from "@/lib/strapi";
-import { type Hero } from "@/types/hero";
+import { type Hero } from "@/types/api";
 
 export const getHeroData = async () => {
   const res = await fetchApi<Hero>({
