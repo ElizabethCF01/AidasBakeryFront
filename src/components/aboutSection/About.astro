@@ -1,0 +1,38 @@
+---
+import { getAboutData } from '@/api/about'
+import { Image } from 'astro:assets'
+import Heart from '@/components/icons/Heart.astro'
+import SoftBadge from '@/components/icons/SoftBadge.astro'
+
+const { title, description, invitation, image_description, image } = await getAboutData()
+const { url } = image.data.attributes
+const imageSrc = `https://aida-api.webiz.se${url}`
+---
+
+<section class="bg-apricot-400 min-h-[100dvh] flex justify-center items-center px-4 py-5">
+  <div class="w-11/12 max-w-7xl flex flex-col-reverse md:flex-row justify-between gap-20">
+    <div class="flex-1 flex flex-col gap-10 max-w-2xl justify-center">
+      <h1 class="text-apricot-950 text-4xl md:text-5xl font-medium font-alegreya">{title}</h1>
+      <p class="text-apricot-950 text-xl md:text-2xl">
+        {description}
+      </p>
+      <p class="text-apricot-950 text-xl md:text-2xl">{invitation}</p>
+    </div>
+    <div class="flex flex-1 w-full justify-center items-center relative">
+      <Image
+        src={imageSrc}
+        inferSize={true}
+        loading={'lazy'}
+        alt={image_description}
+        class="rounded-[100px] aspect-square border-2 border-beauty-bush-50 mx-auto"
+      />
+      <SoftBadge
+        class="h-32 w-32 text-beauty-bush-300 absolute -bottom-16 sm:-bottom-8 md:bottom-20 lg:bottom-0 right-0 sm:right-4 animate-zoom-in"
+      >
+        <div class="absolute top-0 w-full h-full flex justify-center items-center">
+          <Heart class="h-16 w-16 flex justify-center items-center -rotate-12" />
+        </div>
+      </SoftBadge>
+    </div>
+  </div>
+</section>
