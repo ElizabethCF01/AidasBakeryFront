@@ -22,7 +22,7 @@ const { class: className = '', icon = '', image } = Astro.props
     inferSize={true}
     loading={'lazy'}
     alt={'alt'}
-    class="rounded-b-[3rem] rounded-t-[100%] aspect-square border-2 border-pirate-gold-400 mx-auto"
+    class="bg-pearl-bush-300 rounded-b-[3rem] rounded-t-[100%] aspect-square border-2 border-pirate-gold-400 mx-auto"
   />
   {
     icon == 'heart' ? (
@@ -31,16 +31,16 @@ const { class: className = '', icon = '', image } = Astro.props
           <Heart class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
         </div>
       </SoftBadge>
-    ) : icon == 'hand' ? (
+    ) : icon ==  'happy' ? (
       <MiddleBadge class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in">
         <div class="absolute top-0 w-full h-full flex justify-center items-center">
           <HappyFace class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
         </div>
       </MiddleBadge>
-    ) : icon == 'happy' ? (
+    ) : icon == 'hand' ? (
       <Badge class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in">
         <div class="absolute top-0 w-full h-full flex justify-center items-center">
-          <Hand class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+          <Hand class="h-6 w-6 md:size-9 flex justify-center items-center rotate-12 text-beauty-bush-100" />
         </div>
       </Badge>
     ) : (

@@ -1,0 +1,63 @@
+---
+import Badge from '@/components/icons/Badge.astro'
+import SoftBadge from '@/components/icons/SoftBadge.astro'
+import MuenuCard from '@/components/menu/MuenuCard.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title="Descubre la dulzura de DulceAida"
+  description="En DulceAida, ofrecemos una selección de dulces irresistibles que alegrarán tus días. Deléitate con nuestros sabores únicos y lleva a casa un pedacito de felicidad en cada bocado."
+>
+  <header class="bg-pearl-bush-300 shadow-md px-5 xl:px-0">
+    <div class="container mx-auto px-4 py-6 flex items-center justify-between max-w-screen-xl">
+      <div class="flex items-center">
+        <a href="/"> <img src="/logo.png" alt="Logo Dulcería" class="h-12 w-auto mr-4" /></a>
+        <span class="text-2xl font-bold text-pearl-bush-700">Dulcería Panadería</span>
+      </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li>
+            <a href="/" class="text-pearl-bush-700 hover:text-pirate-gold-700 transition-colors duration-300">Home</a>
+          </li>
+          <li>
+            <a href="#contacto" class="text-pearl-bush-700 hover:text-pirate-gold-700 transition-colors duration-300"
+              >Contacto</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-pearl-bush-700 hover:text-pirate-gold-700 transition-colors duration-300"
+              >Sobre nosotros</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="bg-pearl-bush-200 min-h-[100dvh] flex font-alegreya px-4 py-5 justify-center">
+    <div class="flex flex-col w-full max-w-screen-xl">
+      <div class="w-full flex justify-center mb-20 mt-16">
+        <h2 class="text-4xl md:text-5xl mg:px-20 lg:px-32 xl:px-48 text-center font-medium text-gray-600">
+          Nuestro menú
+        </h2>
+      </div>
+      <div class="">
+        <div class="flex w-full flex-col md:flex-row justify-center items-center flex-wrap px-4 mg:px-10">
+          {
+            [0, 1, 2, 5, 6, 7].map((i) => (
+              <div class="flex w-full md:w-1/2 lg:w-1/3 xl:w-1/4 justify-center mb-8">
+                <MuenuCard image="https://123qwe-asd.my.canva.site/postres-aida/images/3769d16143cc245ce76ba90e526d57bd.jpg">
+                  <div class="w-full flex gap-4 justify-between">
+                    <h3 class="text-lg font-semibold">Pan recién horneado</h3>
+                    <div class=" text-pirate-gold-600 font-bold text-xl">$500</div>
+                  </div>
+                  <p>Recién hechos todos los días con ingredientes de primera calidad</p>
+                </MuenuCard>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
