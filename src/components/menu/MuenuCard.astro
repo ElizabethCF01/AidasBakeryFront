@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets'
+import Heart from '../icons/Heart.astro'
+import SoftBadge from '../icons/SoftBadge.astro'
+import HappyFace from '../icons/HappyFace.astro'
+import MiddleBadge from '../icons/MiddleBadge.astro'
+import Badge from '../icons/Badge.astro'
+import Hand from '../icons/Hand.astro'
+
+interface Props {
+  class?: string
+  icon?: 'heart' | 'hand' | 'happy'
+  image: string
+}
+
+const { class: className = '', icon = '', image } = Astro.props
+---
+
+<div class:list={('relative max-w-[215px] lg:max-w-[240px] '+ className)}>
+  <Image
+    src={image}
+    inferSize={true}
+    loading={'lazy'}
+    alt={'alt'}
+    class="rounded-b-[3rem] rounded-t-[100%] aspect-square border-2 border-pirate-gold-400 mx-auto"
+  />
+  {
+    icon == 'heart' ? (
+      <SoftBadge class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in">
+        <div class="absolute top-0 w-full h-full flex justify-center items-center">
+          <Heart class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+        </div>
+      </SoftBadge>
+    ) : icon == 'hand' ? (
+      <MiddleBadge class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in">
+        <div class="absolute top-0 w-full h-full flex justify-center items-center">
+          <HappyFace class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+        </div>
+      </MiddleBadge>
+    ) : icon == 'happy' ? (
+      <Badge class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in">
+        <div class="absolute top-0 w-full h-full flex justify-center items-center">
+          <Hand class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+        </div>
+      </Badge>
+    ) : (
+      <span />
+    )
+  }
+  <div class="text-center text-gray-600 pt-4 px-3">
+    <slot />
+  </div>
+</div>

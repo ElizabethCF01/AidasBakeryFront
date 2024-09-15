@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets'
+import HappyFace from '@/components/icons/HappyFace.astro'
+import SoftBadge from '../icons/SoftBadge.astro'
+import MiddleBadge from '../icons/MiddleBadge.astro'
+import Heart from '../icons/Heart.astro'
+import Badge from '../icons/Badge.astro'
+import Hand from '../icons/Hand.astro'
+import MuenuCard from './MuenuCard.astro'
+import type { CardBadge } from '@/types/menu'
+
+const icons: CardBadge[] = ['heart', 'happy', 'hand']
+---
+
+<section class="bg-pearl-bush-200 min-h-[100dvh] flex font-alegreya px-4 py-5">
+  <div class="flex flex-col w-full">
+    <div class="w-full flex justify-center mb-20 mt-16">
+      <h2 class="text-4xl md:text-5xl mg:px-20 lg:px-32 xl:px-48 text-center font-medium text-gray-600">
+        Nuestro menú
+      </h2>
+    </div>
+    <div class="">
+      <div class="flex flex-1 flex-col md:flex-row w-full justify-center items-center gap-8 lg:gap-16">
+        {
+          [0, 1, 2].map((i) => (
+            <MuenuCard
+              icon={icons[i % 3]}
+              image="https://123qwe-asd.my.canva.site/postres-aida/images/3769d16143cc245ce76ba90e526d57bd.jpg"
+            >
+              <h3 class="text-lg font-semibold">Pan recién horneado</h3>
+              <p>Recién hechos todos los días con ingredientes de primera calidad</p>
+            </MuenuCard>
+          ))
+        }
+
+        <!-- <div class="relative max-w-[215px] lg:max-w-[240px]">
+          <Image
+            src={'https://123qwe-asd.my.canva.site/postres-aida/images/3769d16143cc245ce76ba90e526d57bd.jpg'}
+            inferSize={true}
+            loading={'lazy'}
+            alt={'alt'}
+            class="rounded-b-[3rem] rounded-t-[100%] aspect-square border-2 border-pirate-gold-400 mx-auto"
+          />
+          <SoftBadge
+            class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in"
+          >
+            <div class="absolute top-0 w-full h-full flex justify-center items-center">
+              <Heart class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+            </div>
+          </SoftBadge>
+          <div class="text-center text-gray-600 pt-4 px-3">
+            <h3 class="text-lg font-semibold">Pan recién horneado</h3>
+            <p>Recién hechos todos los días con ingredientes de primera calidad</p>
+          </div>
+        </div>
+        <div class="relative max-w-[215px] lg:max-w-[240px]">
+          <Image
+            src={'https://123qwe-asd.my.canva.site/postres-aida/images/3769d16143cc245ce76ba90e526d57bd.jpg'}
+            inferSize={true}
+            loading={'lazy'}
+            alt={'alt'}
+            class="rounded-b-[3rem] rounded-t-[100%] aspect-square border-2 border-pirate-gold-400 mx-auto"
+          />
+          <MiddleBadge
+            class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in"
+          >
+            <div class="absolute top-0 w-full h-full flex justify-center items-center">
+              <HappyFace class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+            </div>
+          </MiddleBadge>
+          <div class="text-center text-gray-600 pt-4 px-3">
+            <h3 class="text-lg font-semibold">Pan recién horneado</h3>
+            <p>Recién hechos todos los días con ingredientes de primera calidad</p>
+          </div>
+        </div>
+        <div class="relative max-w-[215px] lg:max-w-[240px]">
+          <Image
+            src={'https://123qwe-asd.my.canva.site/postres-aida/images/3769d16143cc245ce76ba90e526d57bd.jpg'}
+            inferSize={true}
+            loading={'lazy'}
+            alt={'alt'}
+            class="rounded-b-[3rem] rounded-t-[100%] aspect-square border-2 border-pirate-gold-400 mx-auto"
+          />
+          <Badge
+            class="h-12 w-12 md:size-20 text-pirate-gold-600 absolute top-4 md:top-2 -right-2 md:-right-4 animate-zoom-in"
+          >
+            <div class="absolute top-0 w-full h-full flex justify-center items-center">
+              <Hand class="h-6 w-6 md:size-9 flex justify-center items-center -rotate-12 text-beauty-bush-100" />
+            </div>
+          </Badge>
+          <div class="text-center text-gray-600 pt-4 px-3">
+            <h3 class="text-lg font-semibold">Pan recién horneado</h3>
+            <p>Recién hechos todos los días con ingredientes de primera calidad</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <a href="/menu" class="w-full flex justify-center mt-20">
+      <p class="text-xl uppercase px-6 py-2 border-2 border-pearl-bush-400 w-fit text-gray-700">ver todo el menú</p>
+    </a>
+  </div>
+</section>
