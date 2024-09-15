@@ -1,5 +1,5 @@
 export type Resource<T> = {
-  data: ResourceData<T>;
+  data: T;
   meta: Meta;
 };
 
@@ -8,15 +8,16 @@ export type ResourceData<T> = {
   attributes: T;
 };
 
-export type Hero = Resource<HeroAttributes>;
-export type Info = Resource<InfoAttributes>;
-export type About = Resource<AboutAttributes>;
+export type Hero = Resource<ResourceData<HeroAttributes>>;
+export type Info = Resource<ResourceData<InfoAttributes>>;
+export type About = Resource<ResourceData<AboutAttributes>>;
+export type Team = Resource<ResourceData<TeamAttributes>[]>;
 
 export type HeroAttributes = {
   title: string;
   call_action: string;
   image_description: string;
-  image: Resource<ImageAttributes>;
+  image: Resource<ResourceData<ImageAttributes>>;
 };
 
 export type InfoAttributes = {
@@ -28,11 +29,26 @@ export type AboutAttributes = {
   description: string;
   invitation: string;
   image_description: string;
-  image: Resource<ImageAttributes>;
+  image: Resource<ResourceData<ImageAttributes>>;
+};
+
+export type TeamAttributes = {
+  title: string;
+  description: string;
+  image: Resource<ResourceData<ImageAttributes>>;
 };
 
 export type ImageAttributes = {
   url: string;
 };
 
-export type Meta = {};
+export type Meta = {
+  pagination?: Pagination;
+};
+
+export type Pagination = {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+};

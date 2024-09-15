@@ -1,0 +1,21 @@
+---
+import { getTeamData } from '@/api/team'
+import TeamCard from '@/components/teamSection/TeamCard.astro'
+
+const teams = await getTeamData()
+---
+
+<section class="bg-beauty-bush-300 min-h-[100dvh] flex justify-center items-center font-alegreya px-4 py-5">
+  <div class="w-11/12 max-w-5xl flex flex-col gap-8 md:gap-20 my-10">
+    <h1 class="text-5xl md:text-7xl text-center font-medium mb-8 text-beauty-bush-950">Detrás de escenas</h1>
+    {
+      teams.map((team) => (
+        <TeamCard
+          title={team.attributes.title}
+          description={team.attributes.description}
+          image={`https://aida-api.webiz.se${team.attributes.image.data.attributes.url}`}
+        />
+      ))
+    }
+  </div>
+</section>
